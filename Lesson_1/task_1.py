@@ -1,7 +1,7 @@
 # 1. Найти сумму и произведение цифр трехзначного числа, которое вводит пользователь.
 # https://drive.google.com/file/d/1ydDhgRFY0F_4WXiqLSupQQdnR_XbU7Fo/view?usp=sharing
 
-print("Введи трехзначное число")
+print("Введи трехзначное число")  # целые числа
 a = int(input("Первая цифра - "))
 b = int(input("Вторая цифра - "))
 c = int(input("Третья цифра - "))

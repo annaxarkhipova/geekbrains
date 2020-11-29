@@ -8,8 +8,12 @@
 # https://drive.google.com/file/d/15FPVBNFRXg_L7e0yv5YixfWFyEiCyPCQ/view?usp=sharing
 
 
-def program(first, second, operator):
+def program():
     while True:
+        print("Введи два числа и оператор сложения/умножения/вычитания/деления")
+        first = input("Первое ")
+        second = input("Второе ")
+        operator = input("Знак ")
         if operator == "0":
             print("Получил 0 вместо оператора вычисления")
             break
@@ -20,15 +24,6 @@ def program(first, second, operator):
             print(f"{result=}")
         else:
             print("Ошибка при вычислении, введи снова")
-        run()
 
 
-def run():
-    print("Введи два числа и оператор сложения/умножения/вычитания/деления")
-    first = input("Первое ")
-    second = input("Второе ")
-    operator = input("Знак ")
-    return program(first, second, operator)
-
-
-print(run())
+print(program())

@@ -23,23 +23,3 @@ for symbol in minimal_digits:
     if symbol > minimal_digits[-1]:
         maximum = [symbol]
 print(*maximum)
-
-
-
-
-
-
-# for i in range(SIZE_N):
-#     matrix_columns = [line[i] for line in matrix]
-#     minimum = [matrix_columns[0]]  # надо получить список [x,x,x], а не [x] [x] [x]
-#
-#     for symbol in matrix_columns:
-#         if symbol < minimum[-1]:
-#             minimum = [symbol]
-#
-#     maximum = [minimum[0]]
-#
-#     for max_symbol in minimum:
-#         if max_symbol > maximum[-1]:
-#             maximum = [max_symbol]
-#     print(maximum)

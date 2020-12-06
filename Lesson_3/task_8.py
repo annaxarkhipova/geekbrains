@@ -4,12 +4,19 @@
 # В конце следует вывести полученную матрицу.
 
 
-SIZE_M = 5
-SIZE_N = 4
-matrix = list(input(f"введи 3 цифры для  матрицы, 4ый элемент - сумма введенных тобой чисел: "))
-summa = 0
-if len(matrix) == SIZE_N - 1:
-    for k in matrix:
-        summa += int(k)
-print(*[matrix + [str(summa)] for _ in range(SIZE_M)], sep="\n")
+SIZE_line = 5
+SIZE_elem = 4
+
+
+s = 0
+for i in range(SIZE_line):
+    matrix = list(input(f"введи 3 цифры для  матрицы, 4ый элемент - сумма введенных тобой чисел: "))
+    if len(matrix) != SIZE_elem - 1:
+        print("Введи 3 цифры")
+        break
+    for a in matrix:
+        s += int(a)
+    print([int(f) for f in matrix] + [s], sep="\n")
+    s = 0
+
 

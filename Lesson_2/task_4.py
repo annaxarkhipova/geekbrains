@@ -14,6 +14,6 @@ def program(a):
     return f"{a} меньше 0"
 
 
-n = int(input(" число "))
-print(program(n))
+# n = int(input(" число "))
+# print(program(n))
 

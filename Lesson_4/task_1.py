@@ -13,50 +13,38 @@ import cProfile
 from Lesson_2.task_4 import program
 
 # var 1 (imported)
-print(timeit.timeit("program(900)", number=100, globals=globals()))  # 0.20329175
-print(cProfile.run("program(900)"))
+# print(timeit.timeit("program(900)", number=100, globals=globals()))
+# print(cProfile.run("program(900)"))
+# 0.25896524
+#          903 function calls (4 primitive calls) in 0.003 seconds
+#
+#    Ordered by: standard name
+#
+#    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+#         1    0.000    0.000    0.002    0.002 <string>:1(<module>)
 #     900/1    0.002    0.000    0.002    0.002 task_4.py:6(program)
+#         1    0.000    0.000    0.003    0.003 {built-in method builtins.exec}
+#         1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 
 
 # var 2
 def program2(a):
-    while a >= 0:
-        if a == 1:
-            return 1
-        if a % 2 == 0:
-            count = a - 1
-            res = count - (1 / 2 ** count)
-            return res
-        else:
-            count = a - 1
-            res = count + (1 / 2 ** count)
-            return res
-    return
+    res = 1
+    for b in range(1, a):
+            res += (1 / 2 ** b) if b % 2 == 0 else -(1 / 2 ** b)
+    return res
 
 
-print(timeit.timeit("program2(900)", number=100, globals=globals()))  # 0.0002934929999999919
-print(cProfile.run("program(900)"))
-#         900/1    0.003    0.000    0.003    0.003 task_4.py:6(program)
-
-
-# var 3
-def program3(a):
-    for i in range(a + 1):
-        if i == 1:
-            return i
-        return i - (1/2 ** i) if a % 2 == 0 else i + (1 / 2 ** i)
-    return
-
-
-print(timeit.timeit("program3(900)", number=100, globals=globals()))  # 0.0002278190000000041
-print(cProfile.run("program(900)"))
-#        903 function calls (4 primitive calls) in 0.005 seconds
-# Ordered by: standard name
+print(timeit.timeit("program2(900)", number=100, globals=globals()))
+print(cProfile.run("program2(900)"))
+# 0.17264186799999998
+#          4 function calls in 0.002 seconds
 #
-# ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-#      1    0.000    0.000    0.005    0.005 <string>:1(<module>)
-#  900/1    0.005    0.000    0.005    0.005 task_4.py:6(program)
-#      1    0.000    0.000    0.005    0.005 {built-in method builtins.exec}
-#      1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
-
+#    Ordered by: standard name
+#
+#    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+#         1    0.000    0.000    0.002    0.002 <string>:1(<module>)
+#         1    0.002    0.002    0.002    0.002 task_1.py:31(program2)
+#         1    0.000    0.000    0.002    0.002 {built-in method builtins.exec}
+#         1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 

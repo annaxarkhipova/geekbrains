@@ -7,7 +7,7 @@
 
 # Первый — с помощью алгоритма «Решето Эратосфена».
 def sieve(n):
-    size = 100  # - поставила наобум, не разобралась какой лимит нужно выставить
+    size = int(n ** 0.5) + 1
     a = [0] * size
     for i in range(size):
         a[i] = i
@@ -41,7 +41,7 @@ print(sieve(1))
 
 
 def prime(z):
-    for s in range(2, z):
+    for s in range(2, int(z ** 0.5) + 1):
         if z % s == 0:
             return False
     return True
@@ -49,7 +49,7 @@ def prime(z):
 
 def find_prime_index(v):
     primes = []
-    for r in range(2, 100):
+    for r in range(2, int(v ** 0.5) + 1):
         if prime(r) is True:
             primes.append(r)
 

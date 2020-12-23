@@ -8,29 +8,39 @@ from collections import deque, Counter
 
 # Десятичные	    0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16  17
 # Шестнадцатеричные	0	1	2	3	4	5	6	7	8	9	a	b	c	d	e	f   10  11
+new = {"0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9}
 count = Counter(A=10, B=11, C=12, D=13, E=14, F=15)
 first_digit = deque(input("Введи первое число "))   #      [‘A’, ‘2’]
 second_digit = deque(input("Введи второе число "))  # [‘C’, ‘4’, ‘F’]
 
 
 symbols_to_sum = deque([])
-if len(first_digit) != len(second_digit):
+if len(first_digit) < len(second_digit):
     diff = len(first_digit) - len(second_digit)
     if diff < 0:
-        symbols_to_sum.extendleft(second_digit[0])
+        if second_digit[diff] in count:
+            symbols_to_sum += [count.get(second_digit[0])]
+        else:
+            symbols_to_sum += [new.get(second_digit[0])]
 
 
 for t in range(len(first_digit)-1, 0, -1):
     for e in range(len(second_digit) - 1, 0, -1):
         if first_digit[t] in count:
-            symbols_to_sum.extend([first_digit[t], second_digit[e]])
+            symbols_to_sum.extend([count.get(first_digit[t]) + new.get(second_digit[e])])
 
         if second_digit[e] in count:
-            symbols_to_sum.extend([second_digit[e], first_digit[t]])
+            symbols_to_sum.extend([count.get(second_digit[e]) + new.get(first_digit[t])])
         t -= 1
 print(symbols_to_sum)
 
 
+# symbols_to_sum.reverse()
+# print(symbols_to_sum)
+# res = 0
+# for symb in symbols_to_sum:
+#     if symb in new:
+#         new.get(symb)
 
 
 

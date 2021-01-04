@@ -5,7 +5,7 @@
 
 
 def check(n):
-    if n <= 0:
+    if n < 0:
         return "введено не нат число"
 
     r1 = func(n)

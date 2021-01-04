@@ -23,7 +23,7 @@ def memory_count(*args):
 # 1 var
 MIN_ITEM = 2
 MAX_ITEM = 9
-multiples = dict()
+multiples = dict()  # инициализация словаря c помощью функции
 memory_count(multiples, MAX_ITEM, MIN_ITEM)
 
 for p in range(MIN_ITEM, MAX_ITEM + 1):
@@ -39,15 +39,17 @@ print(memory_count())  # 2744
 # 2 var
 MIN_ITEM = 2
 MAX_ITEM = 9
-multiples = Counter()
+multiples = Counter()  # Использование collections.Counter
 memory_count(multiples, MAX_ITEM, MIN_ITEM)
 
 for p in range(MIN_ITEM, MAX_ITEM + 1):
-    multiples[p] = deque(str(n) for n in range(2, 99 + 1) if n % p == 0)
+    multiples[p] = deque(str(n) for n in range(2, 99 + 1) if n % p == 0)  # использование collections.deque
     memory_count(p)
     memory_count(multiples[p])
 
 for key, val in multiples.items():
+    memory_count(key)
+    memory_count(val)
     memory_count(print(f"{key}", ", ".join(str(v) for v in val), sep=" -> "))
 
 print(memory_count())  # 5648
@@ -56,10 +58,10 @@ print(memory_count())  # 5648
 # 3 var
 MIN_ITEM = 2
 MAX_ITEM = 9
-multiples = {}
-memory_count(multiples, MAX_ITEM, MIN_ITEM)
+multiples = {}  # Инициализация словаря c помощью литерала
+memory_count(multiples)
 
-for p in range(MIN_ITEM, MAX_ITEM + 1):
+for p in range(2, 9 + 1):
     multiples[p] = [n for n in range(2, 99 + 1) if n % p == 0]
     memory_count(p)
     memory_count(multiples[p])
@@ -67,5 +69,5 @@ for p in range(MIN_ITEM, MAX_ITEM + 1):
 for key, val in multiples.items():
     memory_count(print(f"{key}", ", ".join(str(v) for v in val), sep=" -> "))
 
-print(memory_count())  # 2576
+print(memory_count())  # 2520
 
